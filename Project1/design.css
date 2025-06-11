@@ -24,48 +24,20 @@ body{
   transition: opacity 0.5s ease-in-out;
 }
 
-body::after, body::before {
-  height: 50vh;
-  width: 100%;
-  position: fixed;
-  left: 0;
-}
-body::before {
-  top: 0;
-  transform: translateY(-100%);
-}
-body::after {
-  bottom: 0;
-  transform: translateY(100%);
-}
-body.page-is-changing::after, body.page-is-changing::before {
-  transform: translateY(0);
-}
-
-.cd-loading-bar {
-  position: fixed;
-  height: 2px;
-  width: 90%;
-}
-.cd-loading-bar::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: left center;
-}
-.page-is-changing .cd-loading-bar::before {
-  transform: scaleX(1);
-}
-
 .greeting-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 300px;
-  background: linear-gradient(135deg, #8E6B3A, #D9B38C);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer; 
+  border-radius: 100px;
+}
+
+.greeting-container:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  border-radius: 100px;
 }
 
 .greet {

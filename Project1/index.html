@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <main>
-        <div class="cd-index cd-main-content">
+    <div class="wrapper">
                 <div class="greeting-container" id="greeting">
                     <div class="greet">Hello</div>
                 </div>
@@ -57,19 +56,8 @@
                 </div>
             </div>
         </div>
-    </main>
+   </div>
     
-    <script>
-        const greeting = document.getElementById('greeting');
-        const login = document.getElementById('login');
-
-        greeting.addEventListener('click', () => {
-        greeting.classList.add('hidden');
-
-        setTimeout(() => {
-            login.classList.remove('hidden');
-        }, 1);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
