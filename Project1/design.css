@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -15,6 +16,8 @@ body{
 
 .hidden {
   display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .greeting-container {
@@ -35,6 +38,16 @@ body{
   color: aliceblue;
   cursor: pointer;
   background-color: black;
+}
+
+.greeting-container,
+.login-container {
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container{
