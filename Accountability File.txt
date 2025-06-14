@@ -3,3 +3,4 @@ Accountability File
 Rules - Note down what you have done for the day, and explain it so that you know what to do. And say what you will be doing for tomorrow.
 
 Day 1 - Created a simple containter switch from greeting containter to log in containter. Havent implemented the actual backend yet more on frontend and animation using plain HTML and CSS
+Day 2 - Created a Flask Web application that uses forms, Have just started so dont really know a lot about flask but since its in python. I feel like I can learn a lot.
