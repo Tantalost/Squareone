@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>This is for the Form</h1>
+    {% if username %}
+    <h2>Hello, {{username}}</h2>
+    {% endif %}
+
+     <div class="form-container">
+        <div class="form">
+            <form method="POST">
+                <label for="">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+                <button type="submit">Greet Me</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="/">Back to Homepage</a>
+</body>
+</html>
