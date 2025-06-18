@@ -4,3 +4,4 @@ Rules - Note down what you have done for the day, and explain it so that you kno
 
 Day 1 - Created a simple containter switch from greeting containter to log in containter. Havent implemented the actual backend yet more on frontend and animation using plain HTML and CSS
 Day 2 - Created a Flask Web application that uses forms, Have just started so dont really know a lot about flask but since its in python. I feel like I can learn a lot.
+Day 3 - Back to Project 1, after thinking on what I should do. I decided that using php for the current project would be nice. So that I can be prepred for the upcoming school year. Aside from that Im planning on making another project that will tackle on kiosk's similar to jolibee or mcdonalds.
