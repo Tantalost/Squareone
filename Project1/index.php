@@ -1,3 +1,56 @@
+<?php
+session_start();
+require 'database.php';
+
+if (isset($_POST['login'])){
+    $errMsg = '';
+
+    // Gets Data from the form 
+    $username = isset($_POST["username"]) ? $_POST["username"] : null;
+    $email = isset($_POST["email"]) ? $_POST["email"] : null;
+    $password = isset($_POST["password"]) ? $_POST["password"]: null;
+
+    if (empty($username) && empty($email)) {
+    $errMsg = 'Enter Username or Email';
+    }
+    if (empty($password)) {
+        $errMsg = 'Enter Password';
+    }
+
+    if ($errMsg == '') {
+        try {
+            $stmt = $connct->prepare('SELECT id, username, password, email FROM pdo WHERE username = :username OR email = :email');
+            if ($username) {
+                $stmt = $connct->prepare('SELECT id, username, password, email FROM pdo WHERE username = :username');
+                $stmt->execute([':username' => $username]);
+            } elseif ($email) {
+                $stmt = $connct->prepare('SELECT id, username, password, email FROM pdo WHERE email = :email');
+                $stmt->execute([':email' => $email]);
+            }
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($data == false){
+                $errMsg = "User $username not found";
+            }
+            else {
+                if(password_verify($password, $data['password'])) {
+                    $_SESSION['username'] = $data['username'];
+                    $_SESSION['email'] = $data['email'];
+                    $_SESSION['id'] = $data['id'];
+
+                    header('Location: Homescreen.php');
+                    exit;
+                }
+                else 
+                    $errMsg = 'Password Incorrect';
+            }
+        }
+        catch (PDOException $e) {
+            $errMsg = $e->getMessage();
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +77,12 @@
                         <div class="card-right">
                             <h1 class="title">Looksmax</h1>
                             <h2 class="welcome">Welcome to Looksmaxing</h2>
-                            <form action="#" method="POST">
+                            <?php 
+                                if(isset($errMsg)){
+                                    echo '<div style="color:#FF0000;text-align:center;font-size:17px;">' . htmlspecialchars($errMsg) . '</div>';
+                                }
+                            ?>
+                            <form action="index.php" method="POST">
                                 <div class="input-group">
                                     <label for="username">Username or Email</label>
                                     <input type="text" name="username" id="username" required>
